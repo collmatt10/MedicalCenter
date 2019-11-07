@@ -29,10 +29,10 @@
               <tr data=id="{{$visit->id}}">
               <td>{{  $visit->doctor  }}</td>
               <td>{{  $visit->description }}</td>
-              <td>{{  $visit->publisher  }}</td>
-              <td>{{  $visit->year  }}</td>
-              <td>{{  $visit->isbn  }}</td>
-              <td>{{  $visit->price  }}</td>
+              <td>{{  $visit->patient  }}</td>
+              <td>{{  $visit->time  }}</td>
+              <td>{{  $visit->date  }}</td>
+              <td>{{  $visit->cost  }}</td>
               <td>
                 <a href="{{route ('admin.visits.show', $visit->id) }}" class="btn btn-default">View</a>
                 <a href="{{route ('admin.visits.edit', $visit->id) }}" class="btn btn-warning">Edit</a>

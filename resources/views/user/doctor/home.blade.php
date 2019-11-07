@@ -14,7 +14,14 @@
                         </div>
                     @endif
 
-                    You are logged in as an ordinary user!
+                  Welcome doctor!
+                     {{ Auth::user()->name    }}
+                      </br>
+                      Email:    {{ Auth::user()->email   }}
+
+
+
+                    <a href="{{route('user.visits.index')}}">Appointments</a>
                 </div>
             </div>
         </div>

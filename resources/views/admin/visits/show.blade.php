@@ -7,34 +7,34 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="card">
         <div class="card-header">
-          Visit: {{ $visit->title   }}
+          Visit: {{ $visit->Doctor   }}
         </div>
        <div class="card-body">
           <table class="table table-hover">
             <tbody>
               <tr>
                 <td>Title</td>
-                  <td>{{ $visit->title }}</td>
+                  <td>{{ $visit->doctor }}</td>
               </tr>
               <tr>
                 <td>Author</td>
-                  <td>{{ $visit->author }}</td>
+                  <td>{{ $visit->description }}</td>
               </tr>
               <tr>
                 <td>Publisher</td>
-                  <td>{{ $visit->publisher }}</td>
+                  <td>{{ $visit->patient }}</td>
               </tr>
               <tr>
                 <td>Year</td>
-                  <td>{{ $visit->year }}</td>
+                  <td>{{ $visit->time }}</td>
               </tr>
               <tr>
                 <td>ISBN</td>
-                  <td>{{$visit->isbn }}</td>
+                  <td>{{$visit->date }}</td>
               </tr>
               <tr>
                 <td>Price</td>
-                  <td>{{ $visit->price }}</td>
+                  <td>{{ $visit->cost }}</td>
               </tr>
             </tbody>
 

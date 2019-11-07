@@ -27,31 +27,31 @@
           </div>
 
           <div class="form-group">
-            <label for ="author">Author </label>
+            <label for ="author">Description </label>
             <input type="text" class="form-control" id="author" name="author" value="{{old('author', $visit->author)}}"/>
           </div>
 
           <div class="form-group">
-            <label for ="publisher">Publisher </label>
-            <input type="text" class="form-control" id="publisher" name="publisher" value="{{old('publisher', $visit->publisher)}}"/>
+            <label for ="patient">Patient </label>
+            <input type="text" class="form-control" id="patient" name="patient" value="{{old('patient', $visit->patient)}}"/>
+          </divpatient
+
+          <div class="form-group"cost
+            <label for ="time">Time </labeltime
+            <input type="text" class="form-control" id="time" name="time" value="{{old('time', $visit->time)}}"/>
+          </div>
+
+          <div class="form-group"cost
+            <label for ="isbn">Date </label>
+            <input type="text" class="form-control" id="cost" name="cost" value="{{old('cost', $visit->cost)}}"/>
           </div>
 
           <div class="form-group">
-            <label for ="year">Year </label>
-            <input type="text" class="form-control" id="year" name="year" value="{{old('year', $visit->year)}}"/>
+            <label for ="cost">Cost </label>
+            <input type="text" class="form-control" id="cost" name="cost" value="{{old('cost', $visit->cost)}}"/>
           </div>
 
-          <div class="form-group">
-            <label for ="isbn">ISBN </label>
-            <input type="text" class="form-control" id="isbn" name="isbn" value="{{old('isbn', $book->isbn)}}"/>
-          </div>
-
-          <div class="form-group">
-            <label for ="price">Price </label>
-            <input type="text" class="form-control" id="price" name="price" value="{{old('price', $book->price)}}"/>
-          </div>
-
-          <a href="{{route ('admin.books.index')}}" class="btn btn-link">Cancel</a>
+          <a href="{{route ('admin.visits.index')}}" class="btn btn-link">Cancel</a>
           <button type="submit" class="btn btn-primary float-right">Submit</button>
 
 

@@ -59,7 +59,7 @@ class User extends Authenticatable
        return null !== $this->roles()->whereIn('name', $roles)->first();
 
 
-    if ($user->authorizeRoles(['admin', 'subadmin'])) {
+    if ($user->authorizeRoles(['admin', 'doctor'])) {
       // code...
     }
     else {

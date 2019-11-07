@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Visit;
-class BookController extends Controller
+class VisitController extends Controller
 {
     /**
      * Display a listing of the resource.
