@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -14,12 +16,14 @@
                         </div>
                     @endif
 
-                    normal user !
-        
+                      Welcome Patient!
+                     {{ Auth::user()->name    }}
+                      </br>
+                      Email:    {{ Auth::user()->email   }}
 
+                      </br>
 
-
-
+                    Welcome please book your appointment <a href="{{route('user.visits.index')}}">here</a>
                 </div>
             </div>
         </div>

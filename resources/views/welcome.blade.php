@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Matts Med Center</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #65ABDE;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -74,7 +74,7 @@
                       <div class="card-header">Welcome</div>
 
                       <div class="card-body">
-                          Welcome please book your appointment <a href="{{route('user.visits.index')}}">here</a>
+                          Create an account or login to book an appointment
 
 
                         <br/>

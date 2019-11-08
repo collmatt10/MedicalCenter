@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Doctor;
+namespace App\Http\Controllers\Patient;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Role;
-use App\Doctor;
+use App\Patient;
 class HomeController extends Controller
 {
 
   public function __construct()
   {
         $this->middleware('auth');
-        $this->middleware('role:doctor');
+        $this->middleware('role:patient');
   }
   public function index()
   {
-    return view('doctor.home');
+    return view('patient.home');
   }
 }

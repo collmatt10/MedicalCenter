@@ -7,16 +7,16 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          Books
+         Appointments
 
         </div>
        <div class="card-body">
-         @if (count($books) === 0)
-         <p>There are no Books ! </p>
+         @if (count($visits) === 0)
+         <p>There are no Visits ! </p>
          @else
           <table id="table-books" class="table table-hover">
             <thead>
-              <th>Title</th>
+              <th>Doctor</th>
               <th>Author</th>
               <th>Publisher</th>
               <th>Year</th>
@@ -25,7 +25,7 @@
               <th></th>
             </thead>
             <tbody>
-              @foreach ($books as $book)
+              @foreach ($visits as $visit)
               <tr data=id="{{$book->id}}">
               <td>{{  $book->title  }}</td>
               <td>{{  $book->author  }}</td>
