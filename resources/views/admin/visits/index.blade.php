@@ -7,11 +7,11 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          Upcoming Appointment$visit
+          Upcoming Appointment
            <a href="{{  route('admin.visits.create') }}" class=" float-right btn btn-primary" >Add</a>
         </div>
        <div class="card-body">
-         @if (count(visits) === 0)
+         @if (count($visits) === 0)
          <p>There are no appoitments ! </p>
          @else
           <table id="table-visits" class="table table-hover">

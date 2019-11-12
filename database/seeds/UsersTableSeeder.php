@@ -23,7 +23,9 @@ class UsersTableSeeder extends Seeder
       $admin = new User();
       $admin->name = 'Matthew Collins';
       $admin->email = 'admin@medicalcenter.ie';
-      $admin->password=bcrypt('secret');
+      $admin->password = bcrypt('secret');
+      $admin->postal_address = ('IADT');
+      $admin->phonenumber = ('0871234567');
       $admin->save();
       $admin->roles()-> attach($role_admin);
 
@@ -31,6 +33,8 @@ class UsersTableSeeder extends Seeder
       $user->name = 'Luke Collins';
       $user->email = 'luke@medicalcenter.ie';
       $user->password=bcrypt('secret');
+      $user->postal_address = ('IADT');
+      $user->phonenumber = ('0871234567');
       $user->save();
       $user->roles()-> attach($role_user);
 
@@ -38,6 +42,8 @@ class UsersTableSeeder extends Seeder
       $user->name = 'Darren Fagan';
       $user->email = 'Darren@medicalcenter.ie';
       $user->password=bcrypt('secret');
+      $user->postal_address = ('IADT');
+      $user->phonenumber = ('0871234567');
       $user->save();
       $user->roles()-> attach($role_doctor);
 
@@ -45,6 +51,8 @@ class UsersTableSeeder extends Seeder
       $user->name = 'Dylan Chan';
       $user->email = 'Dylan@medicalcenter.ie';
       $user->password=bcrypt('secret');
+      $user->postal_address = ('IADT');
+      $user->phonenumber = ('0871234567');
       $user->save();
       $user->roles()-> attach($role_patient);
    }
