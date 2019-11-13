@@ -37,6 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function doctor(){
+      return $this->hasOne('App\Doctor');
+    }
 
     public function roles(){
       return $this->belongstoMany('App\Role', 'user_role');

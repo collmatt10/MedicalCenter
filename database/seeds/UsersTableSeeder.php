@@ -48,6 +48,15 @@ class UsersTableSeeder extends Seeder
       $user->roles()-> attach($role_doctor);
 
       $user = new User();
+      $user->name = 'Doctor Collins';
+      $user->email = 'DoctorCollins@medicalcenter.ie';
+      $user->password=bcrypt('secret');
+      $user->postal_address = ('IADT');
+      $user->phonenumber = ('0871234567');
+      $user->save();
+      $user->roles()-> attach($role_doctor);
+
+      $user = new User();
       $user->name = 'Dylan Chan';
       $user->email = 'Dylan@medicalcenter.ie';
       $user->password=bcrypt('secret');
