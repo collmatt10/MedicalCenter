@@ -6,7 +6,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="card">
         <div class="card-header">
-          Add new Book
+          Add new appointment
         </div>
         <div class="card-body">
           @if ($errors->any())
@@ -21,18 +21,31 @@
         <form method="POST" action="{{route('admin.visits.store')}}" >
         <input type="hidden" name="_token" value="{{csrf_token()}}">
 
+        <div class="form-group">
+          <label for ="doctor">Doctor </label>
+          <select name="doctor_id">
+           @foreach ($doctors as $doctor)
+            <option value = "{{ $doctor->id }}" {{ (old('doctor_id') == $doctor->id) ? "selected " : "" }} >
+              {{ $doctor->user->name   }}
+            </option>
+          @endforeach
+          </select>
+
           <div class="form-group">
-            <label for ="doctor">Doctor </label>
-            <input type="text" class="form-control" id="doctor" name="doctor" value="{{old('doctor')}}"/>
-          </div>
-          <div class="form-grodescriptionp">
             <label for ="description">Description </label>
             <input type="text" class="form-control" id="description" name="description" value="{{old('description')}}"/>
           </div>
+
+
           <div class="form-group">
-            <label for ="ppatienttient">Patient </label>
-            <input type="text" class="form-control" id="patient" name="patient" value="{{old('patient')}}"/>
-          </div>
+            <label for ="patient">Patient </label>
+            <select name="patient_id">
+             @foreach ($patients as $patient)
+              <option value = "{{ $patient->id }}" {{ (old('patient_id') == $patient->id) ? "selected " : "" }} >
+                {{ $patient->user->name   }}
+              </option>
+            @endforeach
+            </select>
 
           <div class="form-group">
             <label for ="date">Date </label>

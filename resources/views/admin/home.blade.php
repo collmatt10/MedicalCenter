@@ -15,7 +15,12 @@
                     @endif
 
                     You are logged in as an admin! <a href="{{route('admin.visits.index')}}">Appointments</a>
+                  </br>
                     Here are all the <a href="{{route('admin.doctors.index')}}">Doctors</a>
+                  </br>
+                    Here are all the <a href="{{route('admin.patients.index')}}">Patients</a>
+                  </br>
+                    Here are all the <a href="{{route('admin.visits.index')}}">Visits</a>
                 </div>
             </div>
         </div>

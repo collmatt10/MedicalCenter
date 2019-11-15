@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Visit;
+use App\Doctor;
+use App\Patient;
 
 class VisitController extends Controller
 {
@@ -48,18 +50,18 @@ class VisitController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-          'doctor'=>'required|max:191',
+          'doctor_id'=>'required|max:191',
           'description'=>'required|max:191',
-          'patient'=>'required|max:191',
+          'patient_id'=>'required|max:191',
           'date'=>'required|max:191',
           'time'=>'required|max:191',
           'cost'=>'required|alpha_num|size:13|unique:visits',
 
         ]);
         $visit = new Visit();
-        $visit->doctor = $request->input('doctor');
+        $visit->doctor_id = $request->input('doctor_id');
         $visit->description = $request->input('description');
-        $visit->patent = $request->input('patent');
+        $visit->patent_id = $request->input('patent_id');
         $visit->date = $request->input('date');
         $visit->time = $request->input('time');
         $visit->cost = $request->input('cost');
@@ -95,7 +97,9 @@ class VisitController extends Controller
       $visit = Visit::findOrFail($id);
 
       return view('admin.visits.edit')->with([
-        'visit' => $visit
+        'visit' => $visit,
+        'doctors' => $doctors,
+        'patients' => $patients,
       ]);
     }
 
@@ -111,17 +115,17 @@ class VisitController extends Controller
 
       $visit = Visit::findOrFail($id);
       $request->validate([
-        'doctor'=>'required|max:191'. $visit->id,
+        'doctor_id'=>'required|max:191'. $visit->id,
         'description'=>'required|max:191',
-        'patient'=>'required|max:191',$visit->id,
+        'patient_id'=>'required|max:191',$visit->id,
         'date'=>'required|max:191',
         'time'=>'required||size:13|',
         'cost'=>'required|numeric|min:0',
       ]);
 
-      $visit->doctor = $request->input('doctor');
+      $visit->doctor_id = $request->input('doctor_id');
       $visit->description = $request->input('description');
-      $visit->patient = $request->input('patient');
+      $visit->patient_id = $request->input('patient_id');
       $visit->date = $request->input('date');
       $visit->time = $request->input('time');
       $visit->cost = $request->input('cost');

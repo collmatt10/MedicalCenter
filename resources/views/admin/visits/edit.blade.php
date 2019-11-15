@@ -21,10 +21,17 @@
         <form method="POST" action="{{route('admin.visits.update', $visit->id)}}" >
         <input type="hidden" name="_method" value="PUT">
           <input type="hidden" name="_token" value="{{csrf_token()}}">
+
+
           <div class="form-group">
-            <label for ="title">Doctor </label>
-            <input type="text" class="form-control" id="title" name="title" value="{{old('title', $visit->title)}}"/>
-          </div>
+            <label for ="doctor">Doctor </label>
+            <select name="user_id">
+             @foreach ($doctors as $doctor)
+              <option value = "{{ $doctor->id }}" {{ (old('doctor_id') == $doctor->id) ? "selected " : "" }} >
+                {{ $doctor->user->name   }}
+              </option>
+            @endforeach
+            </select>
 
           <div class="form-group">
             <label for ="author">Description </label>
@@ -33,8 +40,13 @@
 
           <div class="form-group">
             <label for ="patient">Patient </label>
-            <input type="text" class="form-control" id="patient" name="patient" value="{{old('patient', $visit->patient)}}"/>
-          </divpatient
+            <select name="user_id">
+             @foreach ($patients as $patient)
+              <option value = "{{ $patient->id }}" {{ (old('patient_id') == $patient->id) ? "selected " : "" }} >
+                {{ $patient->user->name   }}
+              </option>
+            @endforeach
+            </select>
 
           <div class="form-group"cost
             <label for ="time">Time </labeltime

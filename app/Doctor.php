@@ -9,4 +9,11 @@ class Doctor extends Model
     public function user(){
       return $this->belongsTo('App\User');
     }
+
+        public function visits(){
+          return $this->hasMany('App\Visit'); //doctor has many visits
+        }
+
+
+
 }

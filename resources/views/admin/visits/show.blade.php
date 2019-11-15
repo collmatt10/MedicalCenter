@@ -14,7 +14,7 @@
             <tbody>
               <tr>
                 <td>Title</td>
-                  <td>{{ $visit->doctor }}</td>
+                  <td>{{ $doctor->user->name }}</td>
               </tr>
               <tr>
                 <td>Author</td>
@@ -22,7 +22,7 @@
               </tr>
               <tr>
                 <td>Publisher</td>
-                  <td>{{ $visit->patient }}</td>
+                  <td>{{ $patient->user->name }}</td>
               </tr>
               <tr>
                 <td>Year</td>

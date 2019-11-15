@@ -6,7 +6,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="card">
         <div class="card-header">
-          Add new Doctor
+        Edit Doctor
         </div>
         <div class="card-body">
           @if ($errors->any())
@@ -18,35 +18,33 @@
             </ul>
         </div>
         @endif
-        <form method="POST" action="{{route('admin.doctors.store')}}" >
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <form method="POST" action="{{route('admin.doctors.update', $doctor->id)}}" >
+        <input type="hidden" name="_method" value="PUT">
+          <input type="hidden" name="_token" value="{{csrf_token()}}">
 
           <div class="form-group">
             <label for ="name">Name </label>
-            <input type="text" class="form-control" id="name" name="name" value="{{old('name, $user->name')}}"/>
+            <input type="text" class="form-control" id="name" name="name" value="{{old('name', $doctor->user->name)}}"/>
           </div>
+
           <div class="form-group">
             <label for ="email">Email-Address </label>
-            <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}"/>
-          </div>
-          <div class="form-group">
-            <label for ="password">Password </label>
-            <input type="text" class="form-control" id="password" name="password" value="{{old('password')}}"/>
+            <input type="text" class="form-control" id="email" name="email" value="{{old('email', $doctor->user->email)}}"/>
           </div>
 
           <div class="form-group">
             <label for ="postal_address">Postal address </label>
-            <input type="text" class="form-control" id="postal_address" name="postal_address" value="{{old('postal_address')}}"/>
+            <input type="text" class="form-control" id="postal_address" name="postal_address" value="{{old('postal_address', $doctor->user->postal_address)}}"/>
           </div>
 
           <div class="form-group">
             <label for ="phonenumber">Phone Number </label>
-            <input type="text" class="form-control" id="phonenumber" name="phonenumber" value="{{old('phonenumber')}}"/>
+            <input type="text" class="form-control" id="phonenumber" name="phonenumber" value="{{old('phonenumber', $doctor->user->phonenumber)}}"/>
           </div>
 
           <div class="form-group">
             <label for ="start_date">Start Date </label>
-            <input type="text" class="form-control" id="start_date" name="start_date" value="{{old('start_date')}}"/>
+            <input type="text" class="form-control" id="start_date" name="start_date" value="{{old('start_date',$doctor->start_date)}}"/>
           </div>
 
           <a href="{{route ('admin.doctors.index')}}" class="btn btn-link">Cancel</a>

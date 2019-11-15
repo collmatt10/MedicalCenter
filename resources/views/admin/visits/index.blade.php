@@ -12,7 +12,7 @@
         </div>
        <div class="card-body">
          @if (count($visits) === 0)
-         <p>There are no appoitments ! </p>
+         <p>There are no Appointments ! </p>
          @else
           <table id="table-visits" class="table table-hover">
             <thead>
@@ -27,9 +27,9 @@
             <tbody>
               @foreach ($books as $visit)
               <tr data=id="{{$visit->id}}">
-              <td>{{  $visit->doctor  }}</td>
+              <td>{{  $doctor->user->name  }}</td>
               <td>{{  $visit->description }}</td>
-              <td>{{  $visit->patient  }}</td>
+              <td>{{  $patient->user->name  }}</td>
               <td>{{  $visit->time  }}</td>
               <td>{{  $visit->date  }}</td>
               <td>{{  $visit->cost  }}</td>

@@ -6,7 +6,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="card">
         <div class="card-header">
-          Add new Doctor
+          Add new Patient
         </div>
         <div class="card-body">
           @if ($errors->any())
@@ -18,7 +18,7 @@
             </ul>
         </div>
         @endif
-        <form method="POST" action="{{route('admin.doctors.store')}}" >
+        <form method="POST" action="{{route('admin.patients.store')}}" >
         <input type="hidden" name="_token" value="{{csrf_token()}}">
 
           <div class="form-group">
@@ -45,11 +45,15 @@
           </div>
 
           <div class="form-group">
-            <label for ="start_date">Start Date </label>
-            <input type="text" class="form-control" id="start_date" name="start_date" value="{{old('start_date')}}"/>
+            <label for ="insurance">Insurance Company </label>
+            <input type="text" class="form-control" id="insurance" name="insurance" value="{{old('insurance')}}"/>
+          </div>
+          <div class="form-group">
+            <label for ="policyNum">Policy Number </label>
+            <input type="text" class="form-control" id="policyNum" name="policyNum" value="{{old('policyNum')}}"/>
           </div>
 
-          <a href="{{route ('admin.doctors.index')}}" class="btn btn-link">Cancel</a>
+          <a href="{{route ('admin.patients.index')}}" class="btn btn-link">Cancel</a>
           <button type="submit" class="btn btn-primary float-right">Submit</button>
 
 

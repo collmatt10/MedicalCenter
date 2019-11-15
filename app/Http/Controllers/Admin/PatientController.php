@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
-use App\Doctor;
+use App\Patient;
 
-class DoctorController extends Controller
+class PatientController extends Controller
 {
 
   public function __construct()
@@ -23,10 +23,10 @@ class DoctorController extends Controller
      */
     public function index()
     {
-       $doctors = Doctor::all();
+       $patients = Patient::all();
 
-       return view('admin.doctors.index')->with([
-         'doctors' => $doctors
+       return view('admin.patients.index')->with([
+         'patients' => $patients
        ]);
     }
 
@@ -35,13 +35,10 @@ class DoctorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function create()
-     {
-         $visits = Visit::all();
-         return view('admin.visits.create')->with([
-           'visits' => $visits
-         ]);
-     }
+    public function create()
+    {
+        return view('admin.patients.create');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -60,17 +57,17 @@ class DoctorController extends Controller
           'start_date'=>'required|max:191',
 
         ]);
-        $doctor = new Doctor();
-        $doctor->name = $request->input('name');
-        $doctor->email = $request->input('email');
-        $doctor->password = $request->input('password');
-        $doctor->postal_address = $request->input('postal_address');
-        $doctor->phonenumber = $request->input('phonenumber');
-        $doctor->start_date = $request->input('start_date');
+        $patient = new Patient();
+        $patient->name = $request->input('name');
+        $patient->email = $request->input('email');
+        $patient->password = $request->input('password');
+        $patient->postal_address = $request->input('postal_address');
+        $patient->phonenumber = $request->input('phonenumber');
+        $patient->start_date = $request->input('start_date');
 
-        $doctor->save();
+        $patient->save();
 
-        return redirect()->route('admin.doctors.index');
+        return redirect()->route('admin.patients.index');
     }
 
     /**
@@ -81,10 +78,10 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        $doctor = Doctor::findOrFail($id);
+        $patient = Patient::findOrFail($id);
 
-        return view('admin.doctors.show')->with([
-          'doctor' => $doctor
+        return view('admin.patients.show')->with([
+          'patient' => $patient
         ]);
     }
 
@@ -96,11 +93,10 @@ class DoctorController extends Controller
      */
     public function edit($id)
     {
-      $doctor = Doctor::findOrFail($id);
+      $patient = Patient::findOrFail($id);
 
-      return view('admin.doctors.edit')->with([
-        'doctor' => $doctor,
-
+      return view('admin.patients.edit')->with([
+        'patient' => $patient,
       ]);
     }
 
@@ -114,27 +110,29 @@ class DoctorController extends Controller
     public function update(Request $request, $id)
     {
 
-      $doctor = Doctor::findOrFail($id);
+      $patient = Patient::findOrFail($id);
       $request->validate([
         'name'=>'required|max:191',
         'email'=>'required|max:191',
         'password'=>'required|max:191',
         'postal_address'=>'required|max:191',
         'phonenumber'=>'required|max:191',
-        'start_date'=>'required|max:191',
+        'insurance'=>'required|max:191',
+        'policyNum'=>'required|max:191',
 
       ]);
-      $doctor = new Doctor();
-      $doctor->name = $request->input('name');
-      $doctor->email = $request->input('email');
-      $doctor->password = $request->input('password');
-      $doctor->postal_address = $request->input('postal_address');
-      $doctor->phonenumber = $request->input('phonenumber');
-      $doctor->start_date = $request->input('start_date');
+      $patient = new Patient();
+      $patient->name = $request->input('name');
+      $patient->email = $request->input('email');
+      $patient->password = $request->input('password');
+      $patient->postal_address = $request->input('postal_address');
+      $patient->phonenumber = $request->input('phonenumber');
+      $patient->insurance = $request->input('insurance');
+      $patient->policyNum = $request->input('policyNum');
 
-      $doctor->save();
+      $patient->save();
 
-      return redirect()->route('admin.doctors.index');
+      return redirect()->route('admin.patients.index');
     }
 
     /**
@@ -145,13 +143,13 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-      $doctor = Doctor::findOrFail($id);
+      $patient = Patient::findOrFail($id);
 
-       $doctor->delete();
-       return redirect()->route('admin.doctors.index');
+       $patient->delete();
+       return redirect()->route('admin.patients.index');
 
-      return view('admin.doctors.show')->with([
-        'visit' => $doctor
+      return view('admin.patients.show')->with([
+        'patient' => $patient
       ]);
     }
 }

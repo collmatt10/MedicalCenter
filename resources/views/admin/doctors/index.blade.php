@@ -16,8 +16,8 @@
          @else
           <table id="table-doctors table-users" class="table table-hover">
             <thead>
-              <th>Name</th>
-              <th>Email</th>
+              <th>Name </th>
+              <th>Email </th>
               <th>Address</th>
               <th>Phone Number</th>
               <th>Start Date</th>
@@ -26,10 +26,10 @@
             <tbody>
               @foreach ($doctors as $doctor)
               <tr data=id="{{$doctor->id}}">
-              <td>{{  $doctor->name  }}</td>
-              <td>{{  $doctor->email  }}</td>
-              <td>{{  $doctor->postal_address  }}</td>
-              <td>{{  $doctor->phonenumber  }}</td>
+              <td>{{  $doctor->user->name }}</td>
+              <td>{{  $doctor->user->email  }}</td>
+              <td>{{  $doctor->user->postal_address  }}</td>
+              <td>{{  $doctor->user->phonenumber  }}</td>
               <td>{{  $doctor->start_date  }}</td>
               <td>
                 <a href="{{route ('admin.doctors.show', $doctor->id) }}" class="btn btn-default">View</a>
