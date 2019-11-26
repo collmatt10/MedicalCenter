@@ -37,9 +37,10 @@ class DoctorController extends Controller
      */
      public function create()
      {
-         $visits = Visit::all();
-         return view('admin.visits.create')->with([
-           'visits' => $visits
+         $doctors = Doctor::all();
+         return view('admin.doctors.create')->with([
+           'doctors' => $doctors
+
          ]);
      }
 
@@ -60,14 +61,18 @@ class DoctorController extends Controller
           'start_date'=>'required|max:191',
 
         ]);
-        $doctor = new Doctor();
-        $doctor->name = $request->input('name');
-        $doctor->email = $request->input('email');
-        $doctor->password = $request->input('password');
-        $doctor->postal_address = $request->input('postal_address');
-        $doctor->phonenumber = $request->input('phonenumber');
-        $doctor->start_date = $request->input('start_date');
 
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->postal_address = $request->input('postal_address');
+        $user->phonenumber = $request->input('phonenumber');
+        $user->save();
+
+        $doctor = new Doctor();
+        $doctor->start_date = $request->input('start_date');
+        $doctor->user_id = $user->id;
         $doctor->save();
 
         return redirect()->route('admin.doctors.index');

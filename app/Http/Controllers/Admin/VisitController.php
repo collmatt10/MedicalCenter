@@ -22,24 +22,34 @@ class VisitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-       $visits = Visit::all();
+     public function index()
+     {
 
-       return view('admin.visits.index')->with([
-         'visits' => $visits
-       ]);
-    }
+        $visits = Visit::all();
+        $doctors = Doctor::all();
+        $patients = Patient::all();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('admin.visits.create');
-    }
+        return view('admin.visits.index')->with([
+          'visits' => $visits,
+          'doctors' => $doctors,
+          'patients' => $patients
+        ]);
+     }
+
+     /**
+      * Show the form for creating a new resource.
+      *
+      * @return \Illuminate\Http\Response
+      */
+     public function create()
+     {
+          $doctors = Doctor::all();
+          $patients = Patient::all();
+         return view('admin.visits.create')->with([
+           'doctors' => $doctors,
+           'patients' => $patients
+          ]);
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -55,13 +65,16 @@ class VisitController extends Controller
           'patient_id'=>'required|max:191',
           'date'=>'required|max:191',
           'time'=>'required|max:191',
-          'cost'=>'required|alpha_num|size:13|unique:visits',
+          'cost'=>'required|max:12',
 
         ]);
         $visit = new Visit();
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+        
         $visit->doctor_id = $request->input('doctor_id');
         $visit->description = $request->input('description');
-        $visit->patent_id = $request->input('patent_id');
+        $visit->patient_id = $request->input('patient_id');
         $visit->date = $request->input('date');
         $visit->time = $request->input('time');
         $visit->cost = $request->input('cost');
@@ -79,10 +92,14 @@ class VisitController extends Controller
      */
     public function show($id)
     {
-        $visit = Visit::findOrFail($id);
+      $visits = Visit::all();
+      $doctors = Doctor::all();
+      $patients = Patient::all();
 
         return view('admin.visits.show')->with([
-          'visit' => $visit
+          'visit' => $visit,
+          'doctors' => $doctors,
+          'patients' => $patients
         ]);
     }
 
@@ -117,7 +134,7 @@ class VisitController extends Controller
       $request->validate([
         'doctor_id'=>'required|max:191'. $visit->id,
         'description'=>'required|max:191',
-        'patient_id'=>'required|max:191',$visit->id,
+        'patient_id'=>'required|max:191'.$visit->id,
         'date'=>'required|max:191',
         'time'=>'required||size:13|',
         'cost'=>'required|numeric|min:0',

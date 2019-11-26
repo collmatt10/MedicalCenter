@@ -54,17 +54,21 @@ class PatientController extends Controller
           'password'=>'required|max:191',
           'postal_address'=>'required|max:191',
           'phonenumber'=>'required|max:191',
-          'start_date'=>'required|max:191',
-
+        
         ]);
-        $patient = new Patient();
-        $patient->name = $request->input('name');
-        $patient->email = $request->input('email');
-        $patient->password = $request->input('password');
-        $patient->postal_address = $request->input('postal_address');
-        $patient->phonenumber = $request->input('phonenumber');
-        $patient->start_date = $request->input('start_date');
 
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->postal_address = $request->input('postal_address');
+        $user->phonenumber = $request->input('phonenumber');
+        $user->save();
+
+        $patient = new Patient();
+        $patient->insurance = $request->input('insurance');
+        $patient->policyNum = $request->input('policyNum');
+        $patient->user_id = $user->id;
         $patient->save();
 
         return redirect()->route('admin.patients.index');

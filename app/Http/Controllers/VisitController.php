@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Visit;
+use App\Doctor;
 
 class VisitController extends Controller
 {
@@ -20,14 +21,19 @@ class VisitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-       $visits = Visit::all();
+     public function index()
+     {
 
-       return view('admin.visits.index')->with([
-         'visits' => $visits
-       ]);
-    }
+        $visits = Visit::all();
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+
+        return view('admin.visits.index')->with([
+          'visits' => $visits,
+          'doctors' => $doctors,
+          'patients' => $patients
+        ]);
+     }
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +42,11 @@ class VisitController extends Controller
      */
     public function create()
     {
-        return view('admin.visits.create');
+         $doctors = Doctor::all();
+         dd($doctors);
+        return view('admin.visits.create')->with([
+          'doctors' => $doctors
+        ]);
     }
 
     /**
@@ -59,7 +69,7 @@ class VisitController extends Controller
         $visit = new Visit();
         $visit->doctor = $request->input('doctor');
         $visit->description = $request->input('description');
-        $visit->patent = $request->input('patent');
+        $visit->patient = $request->input('patient');
         $visit->date = $request->input('date');
         $visit->time = $request->input('time');
         $visit->cost = $request->input('cost');

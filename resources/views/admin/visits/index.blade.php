@@ -25,7 +25,7 @@
               <th>Actions</th>
             </thead>
             <tbody>
-              @foreach ($books as $visit)
+              @foreach ($visits as $visit)
               <tr data=id="{{$visit->id}}">
               <td>{{  $doctor->user->name  }}</td>
               <td>{{  $visit->description }}</td>
