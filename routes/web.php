@@ -57,5 +57,8 @@ Route::get('/doctor/visits/{id}/edit','Doctor\VisitController@edit')->name('doct
 Route::put('/doctor/visits/{id}/update','Doctor\VisitController@update')->name('doctor.visits.update');
 Route::delete('/doctor/visits/{id}','Doctor\VisitController@destroy')->name('doctor.visits.destroy');
 
+Route::get('/patient/visits','Patient\VisitController@index')->name('patient.visits.index');
+Route::get('/patient/visits{id}','Patient\VisitController@show')->name('patient.visits.show');
+
 Route::get('/user/visits','User\VisitController@index')->name('user.visits.index');
 Route::get('/user/visits{id}','User\VisitController@show')->name('user.visits.show');

@@ -7,7 +7,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          Upcoming Appointment
+          Upcoming Appointments
            <a href="{{  route('admin.visits.create') }}" class=" float-right btn btn-primary" >Add</a>
         </div>
        <div class="card-body">

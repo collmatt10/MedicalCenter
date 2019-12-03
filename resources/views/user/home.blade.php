@@ -22,7 +22,7 @@
 
 
 
-                    <a href="{{route('user.visits.index')}}">Appointments</a>
+                    <a href="{{route('patients.visits.index')}}">Appointments</a>
                 </div>
             </div>
         </div>

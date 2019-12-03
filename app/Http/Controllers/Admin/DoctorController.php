@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Doctor;
+use Illuminate\Support\Facades\Hash;
 
 class DoctorController extends Controller
 {

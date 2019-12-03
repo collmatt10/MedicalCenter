@@ -23,7 +23,7 @@
 
                       </br>
 
-                    Welcome please book your appointment <a href="{{route('user.visits.index')}}">here</a>
+                   Look at your appointments here <a href="{{route('patient.visits.index')}}">here</a>
                 </div>
             </div>
         </div>

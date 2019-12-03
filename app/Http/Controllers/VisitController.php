@@ -43,7 +43,7 @@ class VisitController extends Controller
     public function create()
     {
          $doctors = Doctor::all();
-         dd($doctors);
+         //dd($doctors);
         return view('admin.visits.create')->with([
           'doctors' => $doctors
         ]);

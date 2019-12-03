@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Patient;
+use Illuminate\Support\Facades\Hash;
 
 class PatientController extends Controller
 {
@@ -51,18 +52,21 @@ class PatientController extends Controller
         $request->validate([
           'name'=>'required|max:191',
           'email'=>'required|max:191',
-          'password'=>'required|max:191',
+          'password' => Hash::make(['password']),
           'postal_address'=>'required|max:191',
           'phonenumber'=>'required|max:191',
-        
+
         ]);
 
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->password = $request->user()->fill([
+            'password' => Hash::make($request->newPassword)
+        ])->save();
         $user->postal_address = $request->input('postal_address');
         $user->phonenumber = $request->input('phonenumber');
+        $user->roles()-> attach($role_patient);
         $user->save();
 
         $patient = new Patient();

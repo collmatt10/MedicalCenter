@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Patient;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Visit;
+use App\Patient;
 class VisitController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class VisitController extends Controller
     public function index()
     {
       $visits = Visit::all();
-        return view('user.visits.index')->with([
+        return view('patient.visits.index')->with([
           'visits' =>$visits
         ]);
     }
@@ -40,7 +41,7 @@ class VisitController extends Controller
     public function show($id)
     {
         $visit = Visit::findOrFail($id);
-        return view('user.visits.show')->with([
+        return view('patient.visits.show')->with([
           'visit' =>$visit
         ]);
     }

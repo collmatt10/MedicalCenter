@@ -53,6 +53,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'postal_address' => ['required', 'string', 'max:255'],
+            'phonenumber' => ['required', 'string', 'max:255']
         ]);
     }
 
@@ -68,6 +70,8 @@ class RegisterController extends Controller
              'name' => $data['name'],
              'email' => $data['email'],
              'password' => Hash::make($data['password']),
+             'postal_address' => $data['postal_address'],
+             'phonenumber' => $data['phonenumber'],
          ]);
 
          $user->roles()->attach(Role::where('name', 'patient')->first());

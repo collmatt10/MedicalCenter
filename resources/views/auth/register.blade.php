@@ -61,6 +61,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="postal_address" class="col-md-4 col-form-label text-md-right">{{ __('Postal Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="postal_address" type="text" class="form-control @error('postal_address') is-invalid @enderror" name="postal_address" value="{{ old('postal_address') }}" required autocomplete="postal_address">
+
+                                @error('postal_address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phonenumber" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phonenumber" type="phonenumber" class="form-control @error('phonenumber') is-invalid @enderror" name="phonenumber" value="{{ old('phonenumber') }}" required autocomplete="phonenumber">
+
+                                @error('phonenumber')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

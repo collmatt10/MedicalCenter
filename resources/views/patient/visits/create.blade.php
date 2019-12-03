@@ -6,7 +6,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="card">
         <div class="card-header">
-        Edit Appointment
+          Add new appointment
         </div>
         <div class="card-body">
           @if ($errors->any())
@@ -18,26 +18,24 @@
             </ul>
         </div>
         @endif
-          @foreach ($visits as $visit)
-        <form method="POST" action="{{route('admin.visits.update', $visit->id)}}" >
-        <input type="hidden" name="_method" value="PUT">
-          <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <form method="POST" action="{{route('admin.visits.store')}}" >
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
 
-
-          <div class="form-group">
-            <label for ="doctor">Doctor </label>
-            <select name="doctor_id">
-             @foreach ($doctors as $doctor)
-              <option value = "{{ $doctor->id }}" {{ (old('doctor_id') == $doctor->id) ? "selected " : "" }} >
-                {{ $doctor->user->name   }}
-              </option>
-            @endforeach
-            </select>
+        <div class="form-group">
+          <label for ="doctor">Doctor </label>
+          <select name="doctor_id">
+           @foreach ($doctors as $doctor)
+            <option value = "{{ $doctor->id }}" {{ (old('doctor_id') == $doctor->id) ? "selected " : "" }} >
+              {{ $doctor->user->name   }}
+            </option>
+          @endforeach
+          </select>
 
           <div class="form-group">
             <label for ="description">Description </label>
-            <input type="text" class="form-control" id="author" name="description" value="{{old('description', $visit->description)}}"/>
+            <input type="text" class="form-control" id="description" name="description" value="{{old('description')}}"/>
           </div>
+
 
           <div class="form-group">
             <label for ="patient">Patient </label>
@@ -50,19 +48,19 @@
             </select>
 
           <div class="form-group">
-            <label for ="time">Time </labeltime>
-            <input type="text" class="form-control" id="time" name="time" value="{{old('time', $visit->time)}}"/>
+            <label for ="date">Date </label>
+            <input type="text" class="form-control" id="date" name="date" value="{{old('date')}}"/>
           </div>
 
           <div class="form-group">
-            <label for ="date">Date </label>
-            <input type="text" class="form-control" id="date" name="date" value="{{old('date', $visit->date)}}"/>
+            <label for ="time">Time </label>
+            <input type="text" class="form-control" id="time" name="time" value="{{old('time')}}"/>
           </div>
 
           <div class="form-group">
             <label for ="cost">Cost </label>
-            <input type="text" class="form-control" id="cost" name="cost" value="{{old('cost', $visit->cost)}}"/>
-          </div>
+            <input type="text" class="form-control" id="cost" name="cost" value="{{old('cost')}}"/>
+          </divcost
 
           <a href="{{route ('admin.visits.index')}}" class="btn btn-link">Cancel</a>
           <button type="submit" class="btn btn-primary float-right">Submit</button>
@@ -74,7 +72,7 @@
     </div>
 
   </div>
-@endforeach
+
 </div>
 </div>
 

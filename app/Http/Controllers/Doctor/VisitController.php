@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class VisitController extends Controller
   public function __construct()
   {
       $this->middleware('auth');
-        $this->middleware('role:admin');
+        $this->middleware('role:doctor');
   }
 
     /**
