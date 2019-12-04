@@ -28,6 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -37,8 +38,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function isAdmin()
+    {
+     return $this->hasRole('admin');
+    }
+
     public function doctor(){
       return $this->hasOne('App\Doctor');
+    }
+
+    public function patient(){
+      return $this->hasOne('App\Patient');
     }
 
     public function roles(){
@@ -53,19 +63,24 @@ class User extends Authenticatable
         }
 
 
-     public function hasRole($role){
+     public function hasRole($role)
+     {
        return null !== $this->roles()->where('name', $role)->first();
      }
 
-     public function hasAnyRole($roles){
+     public function hasAnyRole($roles)
+     {
        return null !== $this->roles()->whereIn('name', $roles)->first();
 
 
     if ($user->authorizeRoles(['admin', 'doctor'])) {
       // code...
     }
+
     else {
       // code...
     }
+
 }
+
 }

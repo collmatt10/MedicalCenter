@@ -33,7 +33,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                      @if(Auth::user())
+                        @if(Auth::user()->isAdmin())
+                      <a class="nav-item navbar-brand" href="{{route('admin.doctors.index')}}">Doctors</a>
+                        <a class="nav-item navbar-brand" href="{{route('admin.patients.index')}}">Patients</a>
+                        <a class="nav-item navbar-brand" href="{{route('admin.visits.index')}}">Visits</a>
+                      </li>
+                    @endif
+                  @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -61,7 +68,7 @@
                                                    document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                   </a>
-                                    
+
                                        <a class="dropdown-item" href="{{ route('home') }}">Dashboard</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

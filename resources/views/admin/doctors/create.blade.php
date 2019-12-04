@@ -29,10 +29,28 @@
             <label for ="email">Email-Address </label>
             <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}"/>
           </div>
+
           <div class="form-group">
-            <label for ="password">Password </label>
-            <input type="password" class="form-control" id="password" name="password" value="{{old('password')}}"/>
+              <label for="password" class="">{{ __('Password') }}</label>
+
+
+                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                  @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+
           </div>
+
+          <div class="form-group ">
+              <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
+
+
+                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+              </div>
+
 
           <div class="form-group">
             <label for ="postal_address">Postal address </label>

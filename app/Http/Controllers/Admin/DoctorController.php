@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Doctor;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\RegistersUsers;
+
+use Illuminate\Support\Facades\Validator;
 
 class DoctorController extends Controller
 {
