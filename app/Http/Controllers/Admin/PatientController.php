@@ -52,7 +52,7 @@ class PatientController extends Controller
         $request->validate([
           'name'=>'required|max:191',
           'email'=>'required|max:191',
-          'password' => Hash::make(['password']),
+          'password' => 'required|max:191',
           'postal_address'=>'required|max:191',
           'phonenumber'=>'required|max:191',
 
@@ -61,12 +61,9 @@ class PatientController extends Controller
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->user()->fill([
-            'password' => Hash::make($request->newPassword)
-        ])->save();
+        $user->password = $request->input('password');
         $user->postal_address = $request->input('postal_address');
         $user->phonenumber = $request->input('phonenumber');
-        $user->roles()-> attach($role_patient);
         $user->save();
 
         $patient = new Patient();

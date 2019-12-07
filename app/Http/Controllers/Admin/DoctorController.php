@@ -66,7 +66,7 @@ class DoctorController extends Controller
 
         ]);
 
-        $user = new User();
+        $user = new User();//made as a user first
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');
@@ -74,7 +74,7 @@ class DoctorController extends Controller
         $user->phonenumber = $request->input('phonenumber');
         $user->save();
 
-        $doctor = new Doctor();
+        $doctor = new Doctor();//when created as a user, made a doctor and given role.
         $doctor->start_date = $request->input('start_date');
         $doctor->user_id = $user->id;
         $doctor->save();
@@ -124,6 +124,7 @@ class DoctorController extends Controller
     {
 
       $doctor = Doctor::findOrFail($id);
+      $user = User::findOrFail($id);
       $request->validate([
         'name'=>'required|max:191',
         'email'=>'required|max:191',
@@ -133,12 +134,12 @@ class DoctorController extends Controller
         'start_date'=>'required|max:191',
 
       ]);
-      $doctor = new Doctor();
-      $doctor->name = $request->input('name');
-      $doctor->email = $request->input('email');
-      $doctor->password = $request->input('password');
-      $doctor->postal_address = $request->input('postal_address');
-      $doctor->phonenumber = $request->input('phonenumber');
+
+      $user->name = $request->input('name');
+      $user->email = $request->input('email');
+      $user->password = $request->input('password');
+      $user->postal_address = $request->input('postal_address');
+      $user->phonenumber = $request->input('phonenumber');
       $doctor->start_date = $request->input('start_date');
 
       $doctor->save();

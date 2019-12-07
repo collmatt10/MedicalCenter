@@ -15,9 +15,10 @@ class CreateDoctorsTable extends Migration
     {
       Schema::create('doctors', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->string('start_date', 100);
+          $table->date('start_date', 100);
           $table->bigInteger('user_id')->unsigned();
           $table->timestamps();
+          
           $table->foreign('user_id')->references('id')->on('users');
         });
     }

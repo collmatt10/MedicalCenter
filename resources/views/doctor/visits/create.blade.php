@@ -26,7 +26,7 @@
           <select name="doctor_id">
            @foreach ($doctors as $doctor)
             <option value = "{{ $doctor->id }}" {{ (old('doctor_id') == $doctor->id) ? "selected " : "" }} >
-              {{ $doctor->user->name   }} 
+              {{ $doctor->user->name   }}
             </option>
           @endforeach
           </select>
@@ -35,6 +35,7 @@
             <label for ="description">Description </label>
             <input type="text" class="form-control" id="description" name="description" value="{{old('description')}}"/>
           </div>
+
 
           <div class="form-group">
             <label for ="patient">Patient </label>

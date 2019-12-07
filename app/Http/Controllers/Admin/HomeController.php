@@ -11,7 +11,7 @@ class HomeController extends Controller
   public function __construct()
   {
       $this->middleware('auth');
-        $this->middleware('role:admin');
+        $this->middleware('role:admin');//checks role is admin before bringing them to home file
   }
     public function index()
     {

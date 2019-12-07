@@ -17,7 +17,7 @@ class AuthRole
     {
         if (!$request->user() || !$request->user()->hasRole($role)) {
           return redirect()->route('home');
-        }
+        }//if the user successfully hasa role attached to it after the request, redirewct the user to the home of its attached role
         return $next($request);
     }
 }

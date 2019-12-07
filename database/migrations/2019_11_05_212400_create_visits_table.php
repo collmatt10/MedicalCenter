@@ -18,10 +18,13 @@ class CreateVisitsTable extends Migration
             $table->bigInteger('doctor_id')->unsigned();
             $table->string('description');
             $table->bigInteger('patient_id')->unsigned();
-            $table->Integer('date')->unsigned();
-            $table->Integer('time')->unique();
+            $table->date('date');
+            $table->time('time');
             $table->decimal('cost',6,2);
             $table->timestamps();
+
+            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->foreign('patient_id')->references('id')->on('patients');
         });
     }
 

@@ -23,7 +23,7 @@
 
                       </br>
 
-                   Look at your appointments here <a href="{{route('patient.visits.index')}}">here</a>
+                   Look at your appointments  <a href="{{route('patient.visits.index')}}">here</a>
                 </div>
             </div>
         </div>

@@ -22,7 +22,7 @@
               <th>Time</th>
               <th>Date</th>
               <th>Cost</th>
-          
+            
             </thead>
             <tbody>
               @foreach ($visits as $visit)
@@ -33,6 +33,7 @@
               <td>{{  $visit->time  }}</td>
               <td>{{  $visit->date  }}</td>
               <td>{{  $visit->cost  }}</td>
+              <td>
 
             </tr>
               @endforeach

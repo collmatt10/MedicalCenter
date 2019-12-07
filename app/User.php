@@ -65,8 +65,8 @@ class User extends Authenticatable
 
      public function hasRole($role)
      {
-       return null !== $this->roles()->where('name', $role)->first();
-     }
+       return null !== $this->roles()->where('name', $role)->first();//used to check what role the user has
+     } //if this user has a  role with a name, retireve the data and if null, return false
 
      public function hasAnyRole($roles)
      {

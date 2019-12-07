@@ -31,7 +31,10 @@
             <label for ="email">Email-Address </label>
             <input type="text" class="form-control" id="email" name="email" value="{{old('email', $doctor->user->email)}}"/>
           </div>
-
+          <div class="form-group">
+            <label for ="password">Password </label>
+            <input type="password" class="form-control" id="password" name="password" value="{{old('password')}}"/>
+          </div>
           <div class="form-group">
             <label for ="postal_address">Postal address </label>
             <input type="text" class="form-control" id="postal_address" name="postal_address" value="{{old('postal_address', $doctor->user->postal_address)}}"/>

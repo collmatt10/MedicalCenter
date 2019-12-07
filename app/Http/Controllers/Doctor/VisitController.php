@@ -29,7 +29,7 @@ class VisitController extends Controller
         $doctors = Doctor::all();
         $patients = Patient::all();
 
-        return view('admin.visits.index')->with([
+        return view('doctor.visits.index')->with([
           'visits' => $visits,
           'doctors' => $doctors,
           'patients' => $patients
@@ -45,7 +45,7 @@ class VisitController extends Controller
      {
           $doctors = Doctor::all();
           $patients = Patient::all();
-         return view('admin.visits.create')->with([
+         return view('doctor.visits.create')->with([
            'doctors' => $doctors,
            'patients' => $patients
           ]);
@@ -81,7 +81,7 @@ class VisitController extends Controller
 
         $visit->save();
 
-        return redirect()->route('admin.visits.index');
+        return redirect()->route('doctor.visits.index');
     }
 
     /**
@@ -96,7 +96,7 @@ class VisitController extends Controller
       $doctors = Doctor::all();
       $patients = Patient::all();
 
-      return view('admin.visits.show')->with([
+      return view('doctor.visits.show')->with([
         'visits' => $visits,
         'doctors' => $doctors,
         'patients' => $patients
@@ -115,7 +115,7 @@ class VisitController extends Controller
       $doctors = Doctor::all();
       $patients = Patient::all();
 
-      return view('admin.visits.edit')->with([
+      return view('doctor.visits.edit')->with([
         'visits' => $visits,
         'doctors' => $doctors,
         'patients' => $patients
@@ -152,7 +152,7 @@ class VisitController extends Controller
 
       $visit->save();
 
-      return redirect()->route('admin.visits.index');
+      return redirect()->route('doctor.visits.index');
     }
 
     /**
@@ -166,9 +166,9 @@ class VisitController extends Controller
       $visit = Visit::findOrFail($id);
 
        $visit->delete();
-       return redirect()->route('admin.visits.index');
+       return redirect()->route('doctor.visits.index');
 
-      return view('admin.visits.show')->with([
+      return view('doctor.visits.show')->with([
         'visit' => $visit
       ]);
     }
