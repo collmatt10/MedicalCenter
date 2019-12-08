@@ -23,8 +23,7 @@ class CreateVisitsTable extends Migration
             $table->decimal('cost',6,2);
             $table->timestamps();
 
-            $table->foreign('doctor_id')->references('id')->on('doctors');   //doctor_id is the id on the doctors table
-            $table->foreign('patient_id')->references('id')->on('patients');
+          
         });
     }
 

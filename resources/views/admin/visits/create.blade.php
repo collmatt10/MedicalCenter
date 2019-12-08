@@ -26,7 +26,7 @@
           <select name="doctor_id">
            @foreach ($doctors as $doctor)
             <option value = "{{ $doctor->id }}" {{ (old('doctor_id') == $doctor->id) ? "selected " : "" }} >
-              {{ $doctor->user->name   }} 
+              {{ $doctor->user->name   }}
             </option>
           @endforeach
           </select>
@@ -48,18 +48,18 @@
 
           <div class="form-group">
             <label for ="date">Date </label>
-            <input type="text" class="form-control" id="date" name="date" value="{{old('date')}}"/>
+            <input type="text" class="form-control" id="date" name="date" value="{{old('date')}}" placeholder="YYYY-MM-DD"/>
           </div>
 
           <div class="form-group">
             <label for ="time">Time </label>
-            <input type="text" class="form-control" id="time" name="time" value="{{old('time')}}"/>
+            <input type="text" class="form-control" id="time" name="time" value="{{old('time')}}" placeholder="00:00:00"/>
           </div>
 
           <div class="form-group">
             <label for ="cost">Cost </label>
             <input type="text" class="form-control" id="cost" name="cost" value="{{old('cost')}}"/>
-          </divcost
+          </div>
 
           <a href="{{route ('admin.visits.index')}}" class="btn btn-link">Cancel</a>
           <button type="submit" class="btn btn-primary float-right">Submit</button>

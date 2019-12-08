@@ -8,7 +8,7 @@
       <div class="card">
         <div class="card-header">
           Upcoming Appointment
-
+ <a href="{{  route('doctor.visits.create') }}" class=" float-right btn btn-primary" >Add</a>
         </div>
        <div class="card-body">
          @if (count($visits) === 0)
@@ -22,10 +22,11 @@
               <th>Time</th>
               <th>Date</th>
               <th>Cost</th>
-            
+
             </thead>
             <tbody>
               @foreach ($visits as $visit)
+
               <tr data=id="{{$visit->id}}">
               <td>{{  $visit->Doctor->user->name  }}</td>
               <td>{{  $visit->description }}</td>
@@ -34,7 +35,10 @@
               <td>{{  $visit->date  }}</td>
               <td>{{  $visit->cost  }}</td>
               <td>
+  <a href="{{route ('doctor.visits.show', $visit->id) }}" class="btn btn-primary">View</a>
+  <a href="{{route ('doctor.visits.edit', $visit->id) }}" class="btn btn-warning">Edit</a>
 
+                </form>
             </tr>
               @endforeach
             </tbody>

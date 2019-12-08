@@ -64,7 +64,7 @@
 
           <div class="form-group">
             <label for ="start_date">Start Date </label>
-            <input type="text" class="form-control" id="start_date" name="start_date" value="{{old('start_date')}}"/>
+            <input type="text" class="form-control" id="start_date" name="start_date" value="{{old('start_date')}}" placeholder="YYYY-MM-DD"/>
           </div>
 
           <a href="{{route ('admin.doctors.index')}}" class="btn btn-link">Cancel</a>

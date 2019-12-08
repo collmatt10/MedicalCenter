@@ -60,7 +60,7 @@
           <div class="form-group">
             <label for ="cost">Cost </label>
             <input type="text" class="form-control" id="cost" name="cost" value="{{old('cost')}}"/>
-          </divcost
+          </div>
 
           <a href="{{route ('admin.visits.index')}}" class="btn btn-link">Cancel</a>
           <button type="submit" class="btn btn-primary float-right">Submit</button>
