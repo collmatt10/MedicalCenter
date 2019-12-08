@@ -14,7 +14,7 @@ class VisitController extends Controller
   public function __construct()
   {
       $this->middleware('auth');
-        $this->middleware('role:admin');
+        $this->middleware('role:admin');//gives admin the middleware authentication of the role
   }
 
     /**
@@ -26,7 +26,7 @@ class VisitController extends Controller
      {
 
         $visits = Visit::all();
-        $doctors = Doctor::all();
+        $doctors = Doctor::all();     //calls data from these tables
         $patients = Patient::all();
 
         return view('admin.visits.index')->with([
@@ -135,7 +135,7 @@ class VisitController extends Controller
       $visit = Visit::findOrFail($id);
       $request->validate([
 
-        'doctor_id'=>'required|max:191'.$visit->id,
+        'doctor_id'=>'required|max:191'.$visit->id, //gives the doctor id to the visit with that id
         'description'=>'required|max:191',
         'patient_id'=>'required|max:191'.$visit->id,
         'date'=>'required|max:191',

@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-      $role_admin = Role::where('name', 'admin')->first();
+      $role_admin = Role::where('name', 'admin')->first();        //creates theses roles in the roles table
       $role_user = Role::where('name', 'user')->first();
       $role_doctor = Role::where('name', 'doctor')->first();
       $role_patient = Role::where('name', 'patient')->first();
@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
       $admin->postal_address = ('IADT');
       $admin->phonenumber = ('0871234567');
       $admin->save();
-      $admin->roles()-> attach($role_admin);
+      $admin->roles()-> attach($role_admin); //attaches this role to this user
 
       $user = new User();
       $user->name = 'Luke Collins';

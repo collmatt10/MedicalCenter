@@ -116,6 +116,7 @@ class PatientController extends Controller
     {
 
       $patient = Patient::findOrFail($id);
+      $user = User::findOrFail($id);
       $request->validate([
         'name'=>'required|max:191',
         'email'=>'required|max:191',

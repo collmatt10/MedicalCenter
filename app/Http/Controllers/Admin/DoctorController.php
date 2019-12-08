@@ -74,7 +74,7 @@ class DoctorController extends Controller
         $user->phonenumber = $request->input('phonenumber');
         $user->save();
 
-        $doctor = new Doctor();//when created as a user, made a doctor and given role.
+        $doctor = new Doctor();//when created as a user, made a doctor and give new role.
         $doctor->start_date = $request->input('start_date');
         $doctor->user_id = $user->id;
         $doctor->save();
@@ -124,7 +124,7 @@ class DoctorController extends Controller
     {
 
       $doctor = Doctor::findOrFail($id);
-      $user = User::findOrFail($id);
+      $user = User::findOrFail($id); //find the data on the user table
       $request->validate([
         'name'=>'required|max:191',
         'email'=>'required|max:191',

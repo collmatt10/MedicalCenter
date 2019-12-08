@@ -40,24 +40,24 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-     return $this->hasRole('admin');
+     return $this->hasRole('admin'); //if the user has the role admin
     }
 
     public function doctor(){
-      return $this->hasOne('App\Doctor');
+      return $this->hasOne('App\Doctor'); //user can have one doctor role
     }
 
     public function patient(){
-      return $this->hasOne('App\Patient');
+      return $this->hasOne('App\Patient'); //user can have one patient role
     }
 
     public function roles(){
-      return $this->belongstoMany('App\Role', 'user_role');
+      return $this->belongstoMany('App\Role', 'user_role'); //roles function being to the Role class  and user_id data on the roles table
     }
 
         public function authorizeRoles($roles){
           if (is_array($roles)) {
-            return $this->hasAnyRole($roles) || abort(401, 'This action is unauthorized');
+            return $this->hasAnyRole($roles) || abort(401, 'This action is unauthorized');  //this page will display if user diesnt have an autherized role
           }
         return $this->hasRole($roles) || abort(401, 'This action is unauthorized');
         }

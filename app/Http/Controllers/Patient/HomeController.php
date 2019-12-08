@@ -11,7 +11,7 @@ class HomeController extends Controller
   public function __construct()
   {
         $this->middleware('auth');
-        $this->middleware('role:patient');
+        $this->middleware('role:patient'); //gives patient the patient authentication in the middleware
   }
   public function index()
   {

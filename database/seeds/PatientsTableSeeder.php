@@ -26,7 +26,7 @@ class PatientsTableSeeder extends Seeder
       }
     }
 
-    private function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    private function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')   //genertates a new random address
 
     {
 

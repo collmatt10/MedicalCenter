@@ -13,13 +13,13 @@ class DoctorsTableSeeder extends Seeder
     public function run()
     {
 
-      $role_user =  Role::where('name','doctor')->first();
+      $role_user =  Role::where('name','doctor')->first();  //creates a new user role where the name is doctor
 
       foreach ($role_user->users as $user) {
-        $doctor = new Doctor();
+        $doctor = new Doctor(); //new doctor
         $doctor->start_date = "1/1/12";
 
-        $doctor->user_id = $user->id;
+        $doctor->user_id = $user->id;  //the user_id on the doctors table is the id on the users table
 
         $doctor->save();
         }
